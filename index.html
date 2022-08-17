@@ -21,40 +21,47 @@
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/parts.css">
   <meta name="theme-color" content="#fafafa">
-
-  <!-- ★　service workerが有効なら、service-worker.js を登録-->
-  <script>
-    if('serviceWorker' in navigator){
-      navigator.serviceWorker.register('./service-worker.js').then(function(){ console.log('Service Worker Registered')})
-    }
-  </script>
-
-  <title>Hello PWA.</title>
-</head>
-
-<body>
 
   <!-- Add your site or application content here -->
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <!-- ★　service workerが有効なら、service-worker.js を登録-->
   <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.register('./service-worker.js').then(function(){ console.log('Service Worker Registered')})
+    }
+
   </script>
+
+  <!-- Add your site or application content here -->
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <title>Hello PWA.</title>
+</head>
+
+<body>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<!--  <script>-->
+<!--    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;-->
+<!--    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')-->
+<!--  </script>-->
 <!--  <script src="https://www.google-analytics.com/analytics.js" async></script>-->
 
 
 
-
-  <div>
-    <h1>Hello PWA.</h1>
+  <div class="main-contents">
+    <h1>Hello PWA</h1>
+    <p>PWAの実装検証サイトです。作成中です。</p>
     <a href="next.html">next.html</a>
 
-    <button id="InstallBtn" style="display:none">
+    <button id="InstallBtn" style="display:none; margin-top: 10px" class="btn btn--orange btn--cubic btn--shadow">
       アプリをインストールする
     </button>
   </div>

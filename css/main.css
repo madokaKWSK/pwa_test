@@ -261,3 +261,9 @@ textarea {
   }
 }
 
+/* コンテンツ */
+div.main-contents{
+  width: 500px;
+  margin: auto;
+}
+
