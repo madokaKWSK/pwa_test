@@ -12,20 +12,30 @@
   <meta property="og:url" content="">
   <meta property="og:image" content="">
 
-  <link rel="manifest" href="site.webmanifest">
+  <!-- ★　manifest.json呼び出し -->
+  <link rel="manifest" href="./manifest.json">
+
+
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
-
   <meta name="theme-color" content="#fafafa">
+
+  <!-- ★　service workerが有効なら、service-worker.js を登録-->
+  <script>
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.register('./js/service-worker.js').then(function(){ console.log('Service Worker Registered')})
+    }
+  </script>
+
+  <title>Hello PWA.</title>
 </head>
 
 <body>
 
   <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
@@ -37,9 +47,12 @@
   </script>
 <!--  <script src="https://www.google-analytics.com/analytics.js" async></script>-->
 
-  <div>
-    <h1>PWA検証用サイト</h1>
 
+
+
+  <div>
+    <h1>Hello PWA.</h1>
+    <a href="next.html">p.html</a>
   </div>
 </body>
 
