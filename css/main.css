@@ -262,8 +262,14 @@ textarea {
 }
 
 /* コンテンツ */
-div.main-contents{
-  width: 500px;
-  margin: auto;
+body{
+  margin: 10px;
+}
+#container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+#main {
+  width: 100%;
 }
 
