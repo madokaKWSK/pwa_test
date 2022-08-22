@@ -2,6 +2,28 @@
 window.onload = function(){
   //バナーの代わりに表示するボタンを登録する
   registerInstallAppEvent(document.getElementById("InstallBtn"));
+
+  //通知許可を取得するボタンイベント
+  document.getElementById('confirmBtn').addEventListener('click', () => {
+    Notification.requestPermission().then(permission => {
+      alert(permission); // granted or denied
+    });
+  });
+
+  // 通知送信ボタンイベント
+  document.getElementById('sendBtn').addEventListener('click', () => {
+    console.log('clickされた？');
+    console.log(Notification.permission);
+    if (Notification.permission === 'granted') {
+      navigator.serviceWorker.ready.then(function (sw){
+        return sw.showNotification("手動プッシュ通知テスト",{
+          body: "通知テスト",
+          tag: 'push-sample'
+        })
+      })
+    }
+
+  });
 }
 
 
