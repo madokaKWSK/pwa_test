@@ -1,7 +1,7 @@
-//import { initializeApp } from "firebase/app";
-//import { getMessaging } from "firebase/messaging/sw";
-importScripts('https://www.gstatic.com/firebasejs/9.1.0/firebase-app-compat.js');
-importScripts('https://www.gstatic.com/firebasejs/9.1.0/firebase-messaging-compat.js');
+importScripts("https://www.gstatic.com/firebasejs/9.9.3/firebase-app-compat.js");
+importScripts("https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging-compat.js");
+//import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app-compat.js";
+//import { getMessaging, onMessage, onBackgroundMessage } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging-compat.js";
 
 // firebase-messaging-sw.js
 self.addEventListener('install', function(e) {
