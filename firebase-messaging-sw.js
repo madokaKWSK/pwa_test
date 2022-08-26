@@ -22,7 +22,7 @@ self.addEventListener('notificationclick', function(event){
 });
 
 // 通知を受けとると push イベントが呼び出される。
-/*
+
 self.addEventListener('push', function (payload) {
   console.log("pushイベント開始");
   var data = {};
@@ -48,14 +48,14 @@ self.addEventListener('push', function (payload) {
   payload.waitUntil(notificationPromise);
 
 }, false);
- */
+
 
 // プッシュ通知受信関連
 // Firebase利用準備
 
 //import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app-compat.js";
 //import { getMessaging, onMessage, onBackgroundMessage } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging-compat.js";
-
+/*
 const firebaseConfig = {
   apiKey: "AIzaSyBtaHO8O-po6GNyDrVxdoxRLF_WF00g5LM",
   authDomain: "test-pwa-push-93537.firebaseapp.com",
@@ -100,5 +100,6 @@ messaging.onBackgroundMessage(function(payload) {
 
   return self.registration.showNotification(notificationTitle, notificationOptions);
 });
+ */
 
 
