@@ -20,18 +20,38 @@
   <link rel="stylesheet" href="css/parts.css">
   <meta name="theme-color" content="#fafafa">
 
+
   <!-- Add your site or application content here -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- ★　service workerが有効なら、service-worker.js を登録-->
+  <!-- FCMライブラリ -->
+  <script type="module" src="js/vendor/firebase.js"></script>
+
+
+
+
+  <!-- ★　service workerが有効なら、firebase-messaging-sw.js を登録-->
   <script>
     if('serviceWorker' in navigator){
-      navigator.serviceWorker.register('./service-worker.js').then(function(){ console.log('Service Worker Registered')})
+      navigator.serviceWorker.register('./firebase-messaging-sw.js').then(function(){ console.log('Service Worker Registered')})
     }
 
   </script>
+
+  <script type="module">
+    import {getSubscription, removeSubscription} from "./js/vendor/firebase.js";
+    document.getElementById('EntryButton').addEventListener('click', getSubscription);
+    document.getElementById('RemoveButton').addEventListener('click', removeSubscription);
+
+  </script>
+
+
+
+
+
 
   <!-- PWA:iOS用設定 -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -72,8 +92,18 @@
     <button id="sendBtn">
       通知を送信する
     </button>
+
+    <div id="notification">
+      <h3>NOTIFICATION</h3>
+      <p>当サイトの更新をプッシュ通知で受け取ることができます。</p>
+      <p class="caution"></p>
+      <button id="EntryButton">プッシュ通知を受け取る</button>
+      <button id="RemoveButton">プッシュ通知を解除する</button>
+    </div>
+
   </div>
 </div>
+
 
 </body>
 

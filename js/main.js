@@ -1,4 +1,5 @@
 // 読み込み後の処理
+
 window.onload = function(){
   //バナーの代わりに表示するボタンを登録する
   registerInstallAppEvent(document.getElementById("InstallBtn"));
@@ -15,15 +16,17 @@ window.onload = function(){
     console.log('clickされた？');
     console.log(Notification.permission);
     if (Notification.permission === 'granted') {
+      console.log('grantedの処理');
       navigator.serviceWorker.ready.then(function (sw){
         return sw.showNotification("手動プッシュ通知テスト",{
-          body: "通知テスト",
-          tag: 'push-sample'
+          body: "通知テスト２"
         })
       })
     }
-
   });
+
+
+
 }
 
 
