@@ -29,7 +29,7 @@
   const db = getFirestore(app);
   const usersRef = collection(db, "users");
 
-  const sw = await window.navigator.serviceWorker.register('/firebase-messaging-sw.js')
+  const sw = await navigator.serviceWorker.ready;
 
   // 購読確認を行う
   checkSubscription();
