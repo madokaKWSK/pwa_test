@@ -3,7 +3,7 @@
   //importScripts('https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging.js');
   //importScripts('https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js');
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
-  import { getMessaging, getToken } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging.js";
+  import { getMessaging, getToken, onMessage } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging.js";
   import { getFirestore, collection, getDocs, query, where, doc, setDoc, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js";
 
   // Your web app's Firebase configuration
@@ -223,3 +223,20 @@
     $('#EntryButton').hide();
     $('#RemoveButton').show();
   }
+
+  // フォアグラウンドでのプッシュ通知受信
+  onMessage(messaging, (payload) => {
+    var notificationTitle = payload.data.title; // タイトル
+    var notificationOptions = {
+      body: payload.data.body, // 本文
+      icon: '/icon.png', // アイコン
+      click_action: 'https://xxxx.sample.com/' // 飛び先URL
+    };
+
+    if (!("Notification" in window)) {
+      // ブラウザが通知機能に対応しているかを判定
+    } else if (Notification.permission === "granted") {
+      // 通知許可されていたら通知する
+      var notification = new Notification(notificationTitle,notificationOptions);
+    }
+  });

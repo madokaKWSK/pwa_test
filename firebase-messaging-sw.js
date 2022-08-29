@@ -21,8 +21,8 @@ self.addEventListener('notificationclick', function(event){
   event.notification.close();
 });
 
-// 通知を受けとると push イベントが呼び出される。
-
+// 通知を受けとると push イベントが呼び出される。:画面がフォアグランドの時は通知されない
+/*
 self.addEventListener('push', function (payload) {
   console.log("pushイベント開始");
   var data = {};
@@ -33,7 +33,7 @@ self.addEventListener('push', function (payload) {
   const notificationOptions = {
     body: data.data.message,
     tag: data.data.tag,
-    icon: '/abacus/test/icon.png',
+    icon: './icon.png',
     vibrate: [300, 100, 100, 100, 300],
     actions: [{
       action: 'action1',
@@ -49,13 +49,15 @@ self.addEventListener('push', function (payload) {
 
 }, false);
 
+ */
+
 
 // プッシュ通知受信関連
 // Firebase利用準備
 
 //import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app-compat.js";
 //import { getMessaging, onMessage, onBackgroundMessage } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging-compat.js";
-/*
+
 const firebaseConfig = {
   apiKey: "AIzaSyBtaHO8O-po6GNyDrVxdoxRLF_WF00g5LM",
   authDomain: "test-pwa-push-93537.firebaseapp.com",
@@ -71,23 +73,6 @@ const app =  firebase.initializeApp(firebaseConfig);
 
 const messaging = firebase.messaging();
 
-// フォアグラウンドでのプッシュ通知受信
-messaging.onMessage(function(payload){
-  var notificationTitle = payload.data.title; // タイトル
-  var notificationOptions = {
-    body: payload.data.body, // 本文
-    icon: '/icon.png', // アイコン
-    click_action: 'https://xxxx.sample.com/' // 飛び先URL
-  };
-
-  if (!("Notification" in window)) {
-    // ブラウザが通知機能に対応しているかを判定
-  } else if (Notification.permission === "granted") {
-    // 通知許可されていたら通知する
-    var notification = new Notification(notificationTitle,notificationOptions);
-  }
-});
-
 // バックグラウンドでのプッシュ通知受信
 messaging.onBackgroundMessage(function(payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
@@ -100,6 +85,6 @@ messaging.onBackgroundMessage(function(payload) {
 
   return self.registration.showNotification(notificationTitle, notificationOptions);
 });
- */
+
 
 
