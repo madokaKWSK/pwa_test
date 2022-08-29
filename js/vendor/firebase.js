@@ -225,6 +225,7 @@
   }
 
   // フォアグラウンドでのプッシュ通知受信
+  /*
   onMessage(messaging, (payload) => {
     var notificationTitle = payload.data.title; // タイトル
     var notificationOptions = {
@@ -238,6 +239,9 @@
     } else if (Notification.permission === "granted") {
       // 通知許可されていたら通知する
       //var notification = new Notification(notificationTitle,notificationOptions);
-      return sw.showNotification(notificationTitle, notificationOptions);
+      //return sw.showNotification(notificationTitle, notificationOptions);
+      window.alert(payload.data.body);
     }
   });
+
+   */

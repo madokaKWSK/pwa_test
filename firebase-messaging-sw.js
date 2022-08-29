@@ -22,24 +22,24 @@ self.addEventListener('notificationclick', function(event){
 });
 
 // 通知を受けとると push イベントが呼び出される。:画面がフォアグランドの時は通知されない
-/*
+
 self.addEventListener('push', function (payload) {
   console.log("pushイベント開始");
-  var data = {};
+  /*
+  const data = {};
   if (payload.data) {
     data = payload.data.json();
   }
-  const notificationTitle = data.data.title;
+   */
+  const notificationTitle = payload.data.title;
   const notificationOptions = {
-    body: data.data.message,
-    tag: data.data.tag,
-    icon: './icon.png',
+    body: payload.data.body,
+    icon: payload.data.icon,
     vibrate: [300, 100, 100, 100, 300],
     actions: [{
       action: 'action1',
       title: 'アクション1'
-    }
-    ]
+    }]
   };
 
   const notificationPromise = self.registration.showNotification(notificationTitle,
@@ -49,15 +49,11 @@ self.addEventListener('push', function (payload) {
 
 }, false);
 
- */
 
 
 // プッシュ通知受信関連
 // Firebase利用準備
-
-//import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app-compat.js";
-//import { getMessaging, onMessage, onBackgroundMessage } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-messaging-compat.js";
-
+/*
 const firebaseConfig = {
   apiKey: "AIzaSyBtaHO8O-po6GNyDrVxdoxRLF_WF00g5LM",
   authDomain: "test-pwa-push-93537.firebaseapp.com",
@@ -73,7 +69,10 @@ const app =  firebase.initializeApp(firebaseConfig);
 
 const messaging = firebase.messaging();
 
+ */
+
 // バックグラウンドでのプッシュ通知受信
+/*
 messaging.onBackgroundMessage(function(payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
   // Customize notification here
@@ -85,6 +84,8 @@ messaging.onBackgroundMessage(function(payload) {
 
   return self.registration.showNotification(notificationTitle, notificationOptions);
 });
+
+ */
 
 
 
