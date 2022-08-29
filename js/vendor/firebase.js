@@ -238,6 +238,6 @@
     } else if (Notification.permission === "granted") {
       // 通知許可されていたら通知する
       //var notification = new Notification(notificationTitle,notificationOptions);
-      return self.registration.showNotification(notificationTitle, notificationOptions);
+      return sw.showNotification(notificationTitle, notificationOptions);
     }
   });
