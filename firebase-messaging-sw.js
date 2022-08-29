@@ -25,17 +25,15 @@ self.addEventListener('notificationclick', function(event){
 
 self.addEventListener('push', function (payload) {
   console.log("pushイベント開始");
-  /*
-  const data = {};
+  let data = {};
   if (payload.data) {
     data = payload.data.json();
   }
-   */
-  const notificationTitle = payload.data.title;
+  const notificationTitle = data.title;
   const notificationOptions = {
-    body: payload.data.body,
-    icon: payload.data.icon,
-    vibrate: [300, 100, 100, 100, 300],
+    body: data.body,
+    // icon: payload.data.icon,
+    // vibrate: [300, 100, 100, 100, 300],
     actions: [{
       action: 'action1',
       title: 'アクション1'
